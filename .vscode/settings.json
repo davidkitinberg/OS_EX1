@@ -47,6 +47,7 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "signal_receiver.h": "c"
     }
 }

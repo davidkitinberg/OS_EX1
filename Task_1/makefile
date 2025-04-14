@@ -22,7 +22,7 @@ divide_by_zero_no_db_info:
 invalid_memory_no_db_info:
 	g++ invalid_memory.cpp -o invalid_memory_no_db_info
 
-# === Cleanup ===
+
 clean:
 	rm -f stack_overflow_debug_info stack_overflow_no_db_info \
 	      divide_by_zero_debug_info divide_by_zero_no_db_info \
