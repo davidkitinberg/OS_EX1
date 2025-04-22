@@ -8,10 +8,25 @@
 
 int main(int argc, char *argv[]) {
     // Check for correct usage
-    if (argc != 2) {
+    if (argc < 2) {
         fprintf(stderr, "Usage: findPhone <name>\n");
         exit(EXIT_FAILURE);
     }
+
+    // Join all parts of the name into a single string
+    char name[256];
+    int pos = 0;
+    for (int i = 1; i < argc; ++i) 
+    {
+        for (int j = 0; argv[i][j] != '\0'; ++j) 
+        {
+            name[pos++] = argv[i][j];
+        }
+        if (i < argc - 1) {
+            name[pos++] = ' ';
+        }
+    }
+    name[pos] = '\0';
 
     // Create pipe
     int pipefd[2];
@@ -43,7 +58,7 @@ int main(int argc, char *argv[]) {
         close(pipefd[1]);  // Close original write end
         
         // Execute grep
-        execlp("grep", "grep", argv[1], "phonebook.txt", NULL);
+        execlp("grep", "grep", name, "phonebook.txt", NULL);
         
         perror("exec grep failed"); // exec failed
         exit(EXIT_FAILURE);
@@ -94,6 +109,4 @@ int main(int argc, char *argv[]) {
     {
         perror("waitpid for awk (child 2)"); // Child 2
     }
-
-
 }
