@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
         N = atoi(argv[3]);
     }
 
-    int M = 3.0; // We are using 3.0 instead of 2.0 for stricter threshold
+    int M = 3.0; // We are using 3.0 for stricter threshold
     complex<double> z(0, 0);
     int i;
     for (i = 0; i < N; ++i) {

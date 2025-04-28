@@ -7,9 +7,6 @@ gcov:
 	rm -f dijkstra_infinite_loop *.gcda *.gcno *.gcov
 	gcc -Wall -Wextra -g -fprofile-arcs -ftest-coverage dijkstra_infinite_loop.c -o dijkstra_infinite_loop
 
-run:
-	./dijkstra_infinite_loop
-
 report:
 	gcov dijkstra_infinite_loop.c
 
